@@ -15,7 +15,7 @@ class Post():
 	def get_all_posts(cls):
 		with open('./static/posts.json', mode='r') as posts_file:
 			data = json.load(posts_file)
-			for dic in data:
-				print(dic)
+			# for dic in data:
+			# 	print(dic)
 			return data
 		

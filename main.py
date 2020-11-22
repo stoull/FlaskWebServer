@@ -128,6 +128,19 @@ def get_posts():
 	posts = Post.get_all_posts()
 	return jsonify(posts)
 
+# Cookies and Session
+from flask import make_response
+
+@app.route('/cookies/')
+def cookies():
+	# Reading cookies
+	username = request.cookies.get('username'
+		)
+
+	# Storing cookies
+	resp = make_response(f"here how to handle cookies. The cookie which your sent to me: {request.cookies}")
+	resp.set_cookie('username', 'the users name')
+	return resp
 
 
 
