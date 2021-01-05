@@ -113,12 +113,17 @@ def get_username_password_from_request(request):
 
 import re
 def valid_login(username, password):
-	pwR = re.match(r'[0-9a-zA-Z]+', password)
-	usR = re.match(r'[0-9a-zA-Z]+', username)
-	return pwR and usR
-	# return re.match(r'\A\w{6,10}\z\A(?=\w{6,10}\z)(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){3})\D*\d.*\z', password)
-	# 	pattern = re.compile(r'[0-9a-zA-Z]{0, 8}')
-	# return re.match(pattern, password) and re.match(pattern, username)
+	if username and password:
+		print("username and password are valid")
+		pwR = re.match(r'[0-9a-zA-Z]+', password)
+		usR = re.match(r'[0-9a-zA-Z]+', username)
+		return pwR and usR
+		# return re.match(r'\A\w{6,10}\z\A(?=\w{6,10}\z)(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){3})\D*\d.*\z', password)
+		# 	pattern = re.compile(r'[0-9a-zA-Z]{0, 8}')
+		# return re.match(pattern, password) and re.match(pattern, username)
+	else:
+		print("username and password are not valid")
+		return False
 
 # API with JSON
 from flask import jsonify
